@@ -1,10 +1,4 @@
 
-/**
- * Write a description of class x here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Producto {
     private String codigo;
     private String nombre;

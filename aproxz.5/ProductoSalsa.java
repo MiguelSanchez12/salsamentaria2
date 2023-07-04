@@ -1,15 +1,15 @@
-
-class Producto {
+public class ProductoSalsa {
     private final String codigo;
     private String nombre;
     private double precio;
     private double cantidad;
 
-    public Producto(String codigo, String nombre, double precio, double cantidad) {
-        if (codigo != null)
+    public ProductoSalsa(String codigo, String nombre, double precio, double cantidad) {
+        if (codigo != null) {
             this.codigo = codigo;
-        else
+        } else {
             this.codigo = "";
+        }
         setNombre(nombre);
         setPrecio(precio);
         setCantidad(cantidad);
@@ -24,10 +24,11 @@ class Producto {
     }
 
     public void setNombre(String nombre) {
-        if (nombre != null)
+        if (nombre != null) {
             this.nombre = nombre;
-        else
+        } else {
             this.nombre = "";
+        }
     }
 
     public double getPrecio() {
@@ -35,10 +36,11 @@ class Producto {
     }
 
     public void setPrecio(double precio) {
-        if (precio >= 0)
+        if (precio >= 0) {
             this.precio = precio;
-        else
+        } else {
             this.precio = 0;
+        }
     }
 
     public double getCantidad() {
@@ -46,9 +48,10 @@ class Producto {
     }
 
     public void setCantidad(double cantidad) {
-        if (cantidad >= 0)
+        if (cantidad >= 0) {
             this.cantidad = cantidad;
-        else
+        } else {
             this.cantidad = 0;
+        }
     }
 }

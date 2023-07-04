@@ -1,19 +1,17 @@
+
 public class Tienda {
     private final String nit;
     private String nombreTienda;
     private String direccion;
-    private Producto[] productos;
-    private int numProductos;
+    private ProductoZ[] productoz;
+    private int numProductoZ;
 
     public Tienda(String nit, String nombreTienda, String direccion) {
-        if (nit != null)
-            this.nit = nit;
-        else
-            this.nit = "";
+        if (nit != null) this.nit = nit;
+        else this.nit = "";
         setNombreTienda(nombreTienda);
         setDireccion(direccion);
-        productos = new Producto[50];
-        numProductos = 0;
+        productoz = new ProductoZ[50];
     }
 
     public String getNit() {
@@ -43,22 +41,24 @@ public class Tienda {
             this.direccion = "";
         }
     }
-
-    public int getNumProductos() {
-        return numProductos;
-    }
-
+  
     public double calcularPromedioPrecios() {
         double promedio = 0;
-        for (int i = 0; i < numProductos; i++) {
-            promedio += productos[i].getPrecio() / numProductos;
+        for (int i = 0; i < numProductoZ; i++) {
+            promedio += productoz[i].getPrecio();
         }
         return promedio;
     }
 
-    public void adicionarProducto(String codigo, String nombre, double precio, double cantidad) {
-        Producto p = new Producto(codigo, nombre, precio, cantidad);
-        productos[numProductos] = p;
-        numProductos++;
+    public void agregarProductoCarne(String codigo, String nombre, double precio, double cantidad) {
+        productoz[numProductoZ] =new ProductoCarne(codigo, nombre, precio, cantidad);
+    }
+
+    public void agregarProductoSalsa(String codigo, String nombre, double precio, double cantidad) {
+        productoz[numProductoZ] =new ProductoSalsa(codigo, nombre, precio, cantidad);
+    }
+
+    public void agregarProductoBebida(String codigo, String nombre, double precio, double cantidad) {
+        productoz[numProductoZ] =new ProductoBebida(codigo, nombre, precio, cantidad);
     }
 }

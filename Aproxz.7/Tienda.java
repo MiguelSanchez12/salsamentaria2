@@ -1,19 +1,16 @@
+import java.util.ArrayList;
 public class Tienda {
     private final String nit;
     private String nombreTienda;
     private String direccion;
-    private Producto[] productos;
-    private int numProductos;
+    private ArrayList productoz;
 
     public Tienda(String nit, String nombreTienda, String direccion) {
-        if (nit != null)
-            this.nit = nit;
-        else
-            this.nit = "";
+        if (nit != null) this.nit = nit;
+        else this.nit = "";
         setNombreTienda(nombreTienda);
         setDireccion(direccion);
-        productos = new Producto[50];
-        numProductos = 0;
+        productoz = productoz = new ArrayList();
     }
 
     public String getNit() {
@@ -43,22 +40,24 @@ public class Tienda {
             this.direccion = "";
         }
     }
-
-    public int getNumProductos() {
-        return numProductos;
-    }
-
+  
     public double calcularPromedioPrecios() {
         double promedio = 0;
-        for (int i = 0; i < numProductos; i++) {
-            promedio += productos[i].getPrecio() / numProductos;
+        for (int i = 0; i < productoz.size(); i++) {
+            promedio += ((ProductoZ)productoz.get(i)).getPrecio();
         }
         return promedio;
     }
 
-    public void adicionarProducto(String codigo, String nombre, double precio, double cantidad) {
-        Producto p = new Producto(codigo, nombre, precio, cantidad);
-        productos[numProductos] = p;
-        numProductos++;
+    public void adicionarProductoCarne(String codigo, String nombre, double precio, double cantidad)throws Exception{
+        productoz.add(new ProductoCarne(codigo, nombre, precio, cantidad));
+    }
+
+    public void adicionarProductoSalsa(String codigo, String nombre, double precio, double cantidad)throws Exception{
+        productoz.add(new ProductoSalsa(codigo, nombre, precio, cantidad));
+    }
+
+    public void adicionarProductoBebida(String codigo, String nombre, double precio, double cantidad)throws Exception{
+        productoz.add(new ProductoBebida(codigo, nombre, precio, cantidad));
     }
 }

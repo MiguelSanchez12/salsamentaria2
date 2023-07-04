@@ -1,20 +1,12 @@
-
-/**
- * Write a description of class z here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 import java.util.Scanner;
 
-public class Notas {
-    public static void main(String Args[]) {
+public class TiendaSalsamentaria {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int numProductos;
-        Tienda miTienda = new Tienda("123456", "Salsamentaria", "Suba");
+        Tienda miTienda = new Tienda("123456", "Salsamentaria Delicias", "Calle Principal");
         String codigo, nombre;
-        double precio;
-        int cantidad;
+        double precio, cantidad;
         double promedio = 0;
 
         System.out.println("Digite el número de productos: ");
@@ -27,15 +19,12 @@ public class Notas {
             nombre = sc.next();
             System.out.println("Digite el precio del producto: ");
             precio = sc.nextDouble();
-            System.out.println("Digite la cantidad a llevar: ");
-            cantidad = sc.nextInt();
-
+            System.out.println("Digite la cantidad a llevar del producto: ");
+            cantidad = sc.nextDouble();
             miTienda.adicionarProducto(codigo, nombre, precio, cantidad);
         }
 
         promedio = miTienda.calcularPromedioPrecios();
         System.out.println("\nEl promedio de precios es: " + promedio);
-
-        sc.close();
     }
 }
